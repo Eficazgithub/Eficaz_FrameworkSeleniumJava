@@ -40,8 +40,8 @@ public class ExtentListnerClass implements ITestListener {
 		reports.setSystemInfo("user name:", "Shyam");
 		
 //configuration to change look and feel of report
-		htmlReporter.config().setDocumentTitle("Extent Listener Report Demo");
-		htmlReporter.config().setReportName("This is my First Report");
+		htmlReporter.config().setDocumentTitle("Extent Listener Report Of the Eficaz");
+		htmlReporter.config().setReportName("This is the Eficaz Report");
 		htmlReporter.config().setTheme(Theme.DARK);//Dark or Standard theme are available
 		
 		
@@ -72,7 +72,7 @@ public class ExtentListnerClass implements ITestListener {
 		test = reports.createTest(Result.getName());//create entry in html report
 		test.log(Status.FAIL, MarkupHelper.createLabel("Name of the failed test case is: " + Result.getName() ,ExtentColor.RED));
 	
-	String screenShotPath = System.getProperty("user.dir") + "\\ScreenShot\\" + Result.getName() + ".png";
+	String screenShotPath = System.getProperty("user.dir") + "\\Screenshots\\" + Result.getName() + ".png";
 	
 	File screenShotFile = new File(screenShotPath);
 	
@@ -80,9 +80,10 @@ public class ExtentListnerClass implements ITestListener {
 	{
 		test.fail("Captured Screenshot is below:" + test.addScreenCaptureFromPath(screenShotPath));
 		
+		
 	}
 	
-		test.addScreenCaptureFromPath(null);
+		//test.addScreenCaptureFromPath(null);
 		
 	}		
 

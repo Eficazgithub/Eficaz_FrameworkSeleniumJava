@@ -20,6 +20,10 @@ WebDriver driver;
 		PageFactory.initElements(driver, this);
 		
 }
+//==================================================================================================================================	
+
+	//identify webelements
+	
 	@FindBy(xpath="//select[@id='ddlUserType']")
 	@CacheLookup
 	WebElement UserRoledropdown;	
@@ -53,8 +57,9 @@ WebDriver driver;
 	WebElement Users_CancelBtn;
 	
 	
-//----------------------------------------------------------------------------------------------------------------	
+//========================================================================================================================
 	
+//identify actions to be performed on web elements	
 	
 	public WebElement UserRoledropdown()
 	{
@@ -63,7 +68,7 @@ WebDriver driver;
 		return UserRoledropdown;
 	}
 	
-	public WebElement UserAvailableRolesDropDown()
+	public WebElement selectUserAvailableRolesDropDown()
 	{
 		Select dropdown= new Select(UserAvailableRolesDropDown);
 		List<WebElement> option= dropdown.getOptions();
@@ -75,36 +80,39 @@ WebDriver driver;
 		return UserAvailableRolesDropDown;
 	}
 		
-		public WebElement Users_UserName()
+		public WebElement enterUsers_UserName(String uname)
 		{
-		
+			Users_UserName.sendKeys(uname);
 			return Users_UserName;
 		}
 		
-		public WebElement Users_UserEmail()
+		public WebElement enterUsers_UserEmail(String uemail)
 		{
+			Users_UserEmail.sendKeys(uemail);
 			return Users_UserEmail;
 		}
 		
-		public WebElement Users_UserFullName()
+		public WebElement enterUsers_UserFullName(String ufullname)
 		{
+			Users_UserFullName.sendKeys(ufullname);
 		    return Users_UserFullName;
 		}
 		
-		public WebElement Users_UserPassword()
+		public WebElement enterUsers_UserPassword(String upwd)
 		{
+			Users_UserPassword.sendKeys(upwd);
 			return Users_UserPassword;
 		}
 		
-		public WebElement Users_SaveBtn()
+		public WebElement clickUsers_SaveBtn()
 		{
-	//Java Script
+	        //Java Script
 			JavascriptExecutor JS = (JavascriptExecutor)driver;
 			JS.executeScript("arguments[0].click();", Users_SaveBtn);
 			return Users_SaveBtn;
 		}
 		
-		public WebElement Users_CancelBtn()
+		public WebElement clickUsers_CancelBtn()
 		{
 			return Users_CancelBtn;
 		}

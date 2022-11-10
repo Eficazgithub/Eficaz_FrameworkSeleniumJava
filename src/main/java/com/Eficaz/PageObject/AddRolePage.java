@@ -1,19 +1,14 @@
 package com.Eficaz.PageObject;
 
-import java.util.Iterator;
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import freemarker.core.JavaScriptOutputFormat;
 
 public class AddRolePage {
 	
@@ -25,6 +20,9 @@ WebDriver driver;
 		PageFactory.initElements(driver, this);
 
 }
+//=====================================================================================================================
+	
+//identify webelements
 	
 	@FindBy(xpath="//input[@name='txtEmail']")
 	@CacheLookup
@@ -58,15 +56,15 @@ WebDriver driver;
 	@CacheLookup
 	WebElement RoleCancelBtn;
 	
-//--------------------------------------------------------------------------------------
+//=========================================================================================================================
 	
-	//Methods of WenElements
+  //Methods of WebElements
 	
-	public WebElement RoleField()
+	public WebElement SelectRoleField()
 	{
 		return RoleField;
 	}
-	public WebElement AvailableRolesDropDown()
+	public WebElement SelectAvailableRolesDropDown()
 	{
 		Select dropdown= new Select(AvailableRolesDropDown);
 		List<WebElement> option= dropdown.getOptions();
@@ -79,39 +77,45 @@ WebDriver driver;
 		
 		return AvailableRolesDropDown;
 	}
+	
 	public WebElement RoleNameField()
 	{
 		return RoleNameField;
 	}
-	public WebElement AllViewCheckbox()
+	
+	public WebElement SelectAllViewCheckbox()
 	{
+		AllViewCheckbox.click();
 		return AllViewCheckbox;
 	}
-	public WebElement AllAddChechbox()
+	
+	public WebElement SelectAllAddChechbox()
 	{
+		AllAddChechbox.click();
 		return AllAddChechbox;
 		
 	}
 	
-	public WebElement RoleEditCheckbox()
+	public WebElement clickRoleEditCheckbox()
 	{
 		//RoleEditCheckbox.click();
 		JavascriptExecutor JS = (JavascriptExecutor)driver;
-		JS.executeScript("arguments[0].click();", RoleEditCheckbox
-				);
+		JS.executeScript("arguments[0].click();", RoleEditCheckbox);
 		return RoleEditCheckbox;
 		
 	}
-	public WebElement SaveBtn()
+	public WebElement clickRoleSaveBtn()
 	{
-//Java Script
+         //Java Script
 		JavascriptExecutor JS = (JavascriptExecutor)driver;
 		JS.executeScript("arguments[0].click();", RoleSaveBtn);
 		
 		return RoleSaveBtn;
 	}
-	public WebElement RoleCancelBtn()
+	
+	public WebElement clickRoleCancelBtn()
 	{
+		RoleCancelBtn.click();
 		return RoleCancelBtn;
 	}
 

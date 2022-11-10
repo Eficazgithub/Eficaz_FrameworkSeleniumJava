@@ -1,7 +1,6 @@
 package com.Eficaz.TestCases;
 
 import java.io.IOException;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.Eficaz.Base.BaseClass;
@@ -10,71 +9,100 @@ import com.Eficaz.PageObject.HomePage;
 import com.Eficaz.PageObject.LogInPage;
 import com.Eficaz.PageObject.RolesPage;
 
-//import java.io.IOException;
-
 
 public class TC_AddRole_002 extends BaseClass
 {
 	
 	
-    @Test
-  
-    
+	//@Test(enabled = false)
+	@Test 
     public void VerifyAddRole() throws IOException, InterruptedException 
    {
     	
-    	logger.info("***************TestCase Verify AddRole starts*****************");    
- //Create the HomePage Object to call mtd
+    	logger.info("***************TestCase_002: Verify AddRole starts*****************");
+    	
+ //===========================================================================================================================   	
+    	
+    	// Enter URL
+    	driver.get(prop.getProperty("url"));
+    	logger.info("URL is opened");
+		
+// Create Login page Object to call mtds   
+    	LogInPage lp=new LogInPage(driver);
+
+// Enter username	 
+        lp.enterUserNameField(prop.getProperty("username"));
+        logger.info("Entered username");
+    	
+// Enter password		    	
+    	lp.enterPasswordField(prop.getProperty("password"));
+        logger.info("Entered password");
+        Thread.sleep(1000);
+        
+// Click Login Button	        
+    	lp.clickloginButton();
+    	logger.info("Login Button Clicked");   
+    	
+// Navigate Back to Login Page
+    	driver.navigate().back();
+    	lp.clickloginButton();
+    	logger.info("clicked login button Second time");
+    	
+    	
+//============================================================================================================================
+ 
+        //Create the HomePage Object to call mtd
     	HomePage hp=new HomePage(driver);
-    	hp.AdminElement().click();
+    	hp.clickAdminElement();
         logger.info("Clicked on AdminElement");
     	
- //Click to the Roles
-    	hp.RolesElement().click();
-    	System.out.println("RolesElement got clicked");
+        //Click to the Roles
+    	hp.clickRolesElement();
     	logger.info("Clicked on RolesElement");
- //Create the RolesPage Object to call mtd
     	
-    	RolesPage rp = new RolesPage(driver);
-    	rp.AddRoleBtn().click();
-    	System.out.println("AddRoleBtn got clicked");
+        //Create the RolesPage Object to call mtd
+        RolesPage rp = new RolesPage(driver);
+    	rp.clickAddRoleBtn();
     	logger.info("Clicked on AddRoleBtn");
     	
-//Create the AddRole Object to call mtd
+        //Create the AddRole Object to call mtd
     	AddRolePage arp = new AddRolePage(driver);
-        arp.AvailableRolesDropDown();
-    	System.out.println("Tester got selected");
+        arp.SelectAvailableRolesDropDown();
     	logger.info("Selected TESTER From Dropdown");
-    
-    	arp.AllViewCheckbox().click();
-    	arp.AllAddChechbox().click();
-    	System.out.println("Click Checkbox");
+   
+    	arp.SelectAllViewCheckbox();
+    	arp.SelectAllAddChechbox();
     	logger.info("Clicked on Checkbox");
-      //Thread.sleep(3000);
-// Save the Role
-    	arp.SaveBtn();
-    	System.out.println("Save Button Cliked");
+        //Thread.sleep(3000);
+    	
+        // Save the Role
+    	arp.clickRoleSaveBtn();
     	logger.info("Clicked on Save Button");
+    	
+//===========================================================================================
     	
  // Verify Test case
     	//Assert.assertTrue(rp.RoleSaveSuccessfullyText().isDisplayed());
-    	System.out.println("Verify TC_02 Successfully");
+    	//System.out.println("Verify TC_02 Successfully");
     	
-    	String savedSuccessfully = rp.getSavedSuccessfully();
-    	Assert.assertEquals("Saved Successfully", savedSuccessfully);
-	    if(savedSuccessfully.equals("Saved Successfully"))
+    	String RoleSuccessText = rp.getRoleSavedSuccessfullyText();
+    	//Assert.assertEquals("Saved Successfully", RoleSuccessText);
+	    if(RoleSuccessText.equals("Saved Successfully"))
 	    {
 	    	Assert.assertTrue(true);
-	    	logger.info("Verify Login - Passed");
-	    	logger.info("***************TestCase Verify AddRole ends*****************"); 
+	    	logger.info("Verify AddRole - Passed");
+	    	logger.info("***************TestCase_002: Verify AddRole ends*****************"); 
+	    	logger.info("=========================================================================="); 
 	    }
 	    else
 	    {
-	    	logger.info("Verify Login - Failed");
-	    	captureScreenShot(driver,"TC_AddRole_002");
+	    	logger.info("Verify AddRole - Failed");
+	    	logger.info("=========================================================================="); 
+	    	captureScreenShot(driver,"VerifyAddRole");
 	    	Assert.assertTrue(false);
+	    	
 	    }
-	    
+//================================================================================================================	    
    }
 
 	

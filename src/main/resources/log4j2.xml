@@ -11,13 +11,14 @@
     
     <RollingFile name="File" fileName="${basePath}/prints.log" filePattern="${basePath}/prints-%d{yyyy-MM-dd}.log">
      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-      <SizeBasedTriggeringPolicy size="500" />
+      <SizeBasedTriggeringPolicy size="100 MB" />
    </RollingFile>
    
   </Appenders>
   <Loggers>
     <Root level="all">
       <AppenderRef ref="File"/>
+      <AppenderRef ref="Console"/>
     </Root>
   </Loggers>
 </Configuration>

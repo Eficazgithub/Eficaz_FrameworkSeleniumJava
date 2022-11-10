@@ -16,6 +16,10 @@ WebDriver driver;
 		PageFactory.initElements(driver, this);
 		
 }
+//==================================================================================================================================
+	
+//identify webelements
+		
 	@FindBy(xpath="//button[@class='redbtn']")
 	@CacheLookup
 	WebElement AddUserBtn;
@@ -26,25 +30,37 @@ WebDriver driver;
 	
 		
 	@FindBy(xpath="//body[1]/div[1]/div[4]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/td[1]")
+	
 	@CacheLookup
 	WebElement UserSaveSuccessfullyText;
 	
-//-----------------------------------------------------------------------------------------
+//=====================================================================================================================================
+
+//identify actions to be performed on web elements
 	
-	public WebElement AddUserBtn()
+	public WebElement clickAddUserBtn()
 	{
+		AddUserBtn.click();
 		return AddUserBtn;
 	}
 	
-	public WebElement ExportToXLSXBtnUser()
+	public String getAddUserBtntext()
 	{
+		return(AddUserBtn.getText());
+		
+	}
+	
+	public WebElement clickExportToXLSXBtnUser()
+	{
+		ExportToXLSXBtnUser.click();
 		return ExportToXLSXBtnUser;
 	}
 	
 		
-	public WebElement RoleSaveSuccessfullyText()
+	public String getUserSaveSuccessfullyText( )
 	{
-		return UserSaveSuccessfullyText;
+		return(UserSaveSuccessfullyText.getText());
+		
 	}
 }
 

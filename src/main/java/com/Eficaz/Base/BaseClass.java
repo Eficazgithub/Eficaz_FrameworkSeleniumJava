@@ -16,12 +16,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import com.Eficaz.PageObject.HomePage;
-import com.Eficaz.PageObject.LogInPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -34,7 +30,7 @@ public class BaseClass {
 	
     
 	
-	@BeforeSuite
+	@BeforeClass
     public WebDriver initializeBrowser() throws IOException, InterruptedException  {
 		 
 	
@@ -76,57 +72,70 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		
 		return driver;
-}
-//-------------------------------------------------------------------------------------------------------------------------
-		
+	
+	}
+//=====================================================================================================================================		
 // Login Test Added for all functionality
 	
-	@BeforeClass
-	public void URLCall() throws InterruptedException {
+	//@BeforeClass
+	//@Test
+	//public void VerifyLogin() throws InterruptedException, IOException {
 		 // Enter URL
-			    	driver.get(prop.getProperty("url"));
-			    	logger.info("URL is opened");
-					
-	    // Create Login page Object to call mtds   
-			    	LogInPage lp=new LogInPage(driver);
-			    	
-		 // Enter username	 
-			        lp.UserNameField().sendKeys(prop.getProperty("username"));
-			        logger.info("Entered username");
-			    	System.out.println("username Entered");
-			    	
-		 // Enter password		    	
-			    	lp.PasswordField().sendKeys(prop.getProperty("password"));
-			        logger.info("Entered password");
-			    	System.out.println("password Entered");
-			        Thread.sleep(1000);
-			        
-		 // Click Login Button	        
-			    	lp.loginButton().click();
-			    	logger.info("Login Button Click");
-			    	System.out.println("clicked login button");    
-			    	
-		 // Navigate Back to Login Page
-			    	driver.navigate().back();
-			    	lp.loginButton().click();
-			    	System.out.println("clicked login button double");  
-			    	
-		 // verify the login successful or not
-			    	HomePage hp=new HomePage(driver);
-			    	Assert.assertTrue(hp.logoDisplayed().isDisplayed());
-			    	logger.debug("Login Test passed");
-			    	System.out.println("Logo got displayed");
-					
-		       }
-			    	
-//-------------------------------------------------------------------------------------------------------			    	
+//			    	driver.get(prop.getProperty("url"));
+//			    	logger.info("URL is opened");
+//					
+//	    // Create Login page Object to call mtds   
+//			    	LogInPage lp=new LogInPage(driver);
+//	
+//			    	logger.info("***************TestCase Verify Login starts*****************"); 
+//		 // Enter username	 
+//			        lp.enterUserNameField(prop.getProperty("username"));
+//			        logger.info("Entered username");
+//			    	
+//		 // Enter password		    	
+//			    	lp.enterPasswordField(prop.getProperty("password"));
+//			        logger.info("Entered password");
+//			        Thread.sleep(1000);
+//			        
+//		 // Click Login Button	        
+//			    	lp.clickloginButton();
+//			    	logger.info("Login Button Clicked");   
+//			    	
+//		 // Navigate Back to Login Page
+//			    	driver.navigate().back();
+//			    	lp.clickloginButton();
+//			    	logger.info("clicked login button Second time");  
+//			    	
+//		 // verify the login successful or not
+//			    	HomePage hp=new HomePage(driver);
+//			    	String ChangePassText=hp.getChangePasswordText();
+//			    	if(ChangePassText.equals("Change password"))
+//				    {
+//				    	Assert.assertTrue(true);
+//				    	logger.info("Verify Login - Passed");
+//				    	logger.info("***************TestCase Verify Login ends*****************"); 
+//				    }
+//				    else
+//				    {
+//				    	logger.info("Verify Login - Failed");
+//				    	captureScreenShot(driver,"VerifyLogin");
+//				    	Assert.assertTrue(false);
+//				    }
+//			    	
+//					
+//		       }
+	
+//=====================================================================================================================	    	
 
 				@AfterClass
 				    public void closure()
 				    {
-				    	driver.close();
+					    driver.close();
+				    	driver.quit();
+				    	
+				    
 				    }
-//-------------------------------------------------------------------------------------------------------------
+//=======================================================================================================================
 
 	//user method to capture screen shot
 				
@@ -139,10 +148,10 @@ public class BaseClass {
 					
 					File src = screenshot.getScreenshotAs(OutputType.FILE);
 					
-					File dest = new File(System.getProperty("user.dir") + "//Screenshot//" + testName + ".png");
+					File dest = new File(System.getProperty("user.dir") + "//Screenshots//" + testName + ".png");
 				
 					//step3: copy image file to destination
 					FileUtils.copyFile(src, dest);
 				}
-//--------------------------------------------------------------------------------------------------------------------------------
+//=====================================================================================================================================
 }

@@ -1,0 +1,42 @@
+10:20:10.750 [main] INFO  eficaz - URL is opened
+10:20:10.773 [main] INFO  eficaz - ***************TestCase_001: Verify Login starts*****************
+10:20:10.871 [main] INFO  eficaz - Entered username
+10:20:10.975 [main] INFO  eficaz - Entered password
+10:20:12.421 [main] INFO  eficaz - Login Button Clicked
+10:20:13.973 [main] INFO  eficaz - clicked login button Second time
+10:20:14.044 [main] INFO  eficaz - Verify Login - Passed
+10:20:14.045 [main] INFO  eficaz - ***************TestCase_001: Verify Login ends*****************
+10:20:14.045 [main] INFO  eficaz - ==========================================================================
+10:20:15.783 [main] INFO  eficaz - ***************TestCase_002: Verify AddRole starts*****************
+10:20:16.247 [main] INFO  eficaz - URL is opened
+10:20:16.346 [main] INFO  eficaz - Entered username
+10:20:16.426 [main] INFO  eficaz - Entered password
+10:20:17.840 [main] INFO  eficaz - Login Button Clicked
+10:20:19.466 [main] INFO  eficaz - clicked login button Second time
+10:20:19.571 [main] INFO  eficaz - Clicked on AdminElement
+10:20:20.253 [main] INFO  eficaz - Clicked on RolesElement
+10:20:20.878 [main] INFO  eficaz - Clicked on AddRoleBtn
+10:20:21.148 [main] INFO  eficaz - Selected TESTER From Dropdown
+10:20:21.308 [main] INFO  eficaz - Clicked on Checkbox
+10:20:22.011 [main] INFO  eficaz - Clicked on Save Button
+10:20:22.072 [main] INFO  eficaz - Verify AddRole - Passed
+10:20:22.072 [main] INFO  eficaz - ***************TestCase_002: Verify AddRole ends*****************
+10:20:22.072 [main] INFO  eficaz - ==========================================================================
+10:20:23.700 [main] INFO  eficaz - ***************TestCase_003: Verify AddUser starts*****************
+10:20:24.027 [main] INFO  eficaz - URL is opened
+10:20:24.134 [main] INFO  eficaz - Entered username
+10:20:24.222 [main] INFO  eficaz - Entered password
+10:20:25.645 [main] INFO  eficaz - Login Button Clicked
+10:20:27.130 [main] INFO  eficaz - clicked login button Second time
+10:20:27.260 [main] INFO  eficaz - Clicked on AdminElement
+10:20:28.054 [main] INFO  eficaz - Clicked on UserElement
+10:20:28.710 [main] INFO  eficaz - Clicked on AddUserBtn
+10:20:28.832 [main] INFO  eficaz - Selected Role from Dropdown
+10:20:29.055 [main] INFO  eficaz - Selected TESTER from Dropdown
+10:20:29.174 [main] INFO  eficaz - Entered Users_UserName
+10:20:29.299 [main] INFO  eficaz - Entered Users_UserEmail
+10:20:29.409 [main] INFO  eficaz - Entered Users_UserFullName
+10:20:29.539 [main] INFO  eficaz - Entered Users_UserPassword
+10:20:29.539 [main] INFO  eficaz - Verify AddUser - Passed
+10:20:29.539 [main] INFO  eficaz - ***************TestCase_003: Verify AddUser ends*****************
+10:20:29.539 [main] INFO  eficaz - ==========================================================================

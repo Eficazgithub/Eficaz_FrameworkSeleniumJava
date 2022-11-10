@@ -16,6 +16,9 @@ public class LogInPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
+//===============================================================================================================================
+	
+//identify webelements
 	
 	@FindBy(xpath="//input[@id='txtUser']")
 	@CacheLookup
@@ -29,23 +32,26 @@ public class LogInPage {
 	@CacheLookup
 	WebElement loginButton;
 	
-
+//========================================================================================================================
 	
+//identify actions to be performed on web elements
 	
-	
-	public WebElement UserNameField()
+	public WebElement enterUserNameField(String uname)
 	{
+		UserNameField.sendKeys(uname);
 		return UserNameField;
 	}
 	
-	public WebElement PasswordField()
+	public WebElement enterPasswordField(String pwd )
 	{
+		PasswordField.sendKeys(pwd);
 		return PasswordField;
 	}
 	
 
-	public WebElement loginButton()
+	public WebElement clickloginButton()
 	{
+		loginButton.click();
 		return loginButton;
 	}
 	

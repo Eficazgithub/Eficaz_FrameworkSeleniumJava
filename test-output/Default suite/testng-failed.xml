@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Eficaz.TestCases.TC_AddRole_002">
+      <class name="com.Eficaz.TestCases.TC_Login_001">
         <methods>
           <include name="closure"/>
+          <include name="VefifyLogin"/>
           <include name="initializeBrowser"/>
-          <include name="URLCall"/>
-          <include name="VerifyAddRole"/>
         </methods>
-      </class> <!-- com.Eficaz.TestCases.TC_AddRole_002 -->
+      </class> <!-- com.Eficaz.TestCases.TC_Login_001 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

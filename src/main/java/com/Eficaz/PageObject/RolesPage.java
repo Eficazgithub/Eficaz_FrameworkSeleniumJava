@@ -16,6 +16,10 @@ WebDriver driver;
 		PageFactory.initElements(driver, this);
 
 }
+//=========================================================================================================================
+	
+//identify webelements
+	
 	@FindBy(xpath="//button[normalize-space()='Add Role']")
 	@CacheLookup
 	WebElement AddRoleBtn;
@@ -40,32 +44,38 @@ WebDriver driver;
 	@CacheLookup
 	WebElement SavedSuccessfully;
 	
-//-----------------------------------------------------------------------------------------
+//=========================================================================================================================
+
+//identify action on webelement
 	
-	public WebElement AddRoleBtn()
+	public WebElement clickAddRoleBtn()
 	{
+		AddRoleBtn.click();
 		return AddRoleBtn;
 	}
 	
-	public WebElement RoleExportToXLSXBtn()
+	public WebElement clickRoleExportToXLSXBtn()
 	{
+		RoleExportToXLSXBtn.click();
 		return RoleExportToXLSXBtn;
 	}
 	
-	public WebElement EditRole()
+	public WebElement clickEditRole()
 	{
+		EditRole.click();
 		return EditRole;
 	}
 	
-	public WebElement DeleteRole()
+	public WebElement clickDeleteRole()
 	{
+		DeleteRole.click();
 		return DeleteRole;
 	}
 	
-	public String getSavedSuccessfully()
+	public String getRoleSavedSuccessfullyText( )
 	{
-		String text = SavedSuccessfully.getText();
-		return text;
+		return(SavedSuccessfully.getText());
+		
 	}
 }
 

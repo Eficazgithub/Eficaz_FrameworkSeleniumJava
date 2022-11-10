@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 	
+//1. create object of webdriver
       WebDriver driver;
 	
 	public HomePage(WebDriver driver)
@@ -15,7 +16,10 @@ public class HomePage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-		
+//======================================================================================================================
+	
+	//identify webelements
+	
 		@FindBy(xpath="//td[@class='logo']")
 		@CacheLookup
 		WebElement logoDisplayed;
@@ -64,61 +68,82 @@ public class HomePage {
 		@CacheLookup
 		WebElement UsersElement;
 		
-//--------------------------------------------------------------------------------------------------------------------
+		@FindBy(xpath="//a[contains(text(),'Change')]")
+		@CacheLookup
+		WebElement ChangePasswordText;
+		
+//=============================================================================================================================
+//identify action on webelement
 		
 		public WebElement logoDisplayed()
 		{
 			return logoDisplayed;
 		}
 		
-		public WebElement AdminElement()
+		public WebElement clickAdminElement()
 		{
+			AdminElement.click();
 			return AdminElement;
 		}
 		
-		public WebElement ConnectionsElement()
+		public WebElement clickConnectionsElement()
 		{
+			ConnectionsElement.click();
 			return ConnectionsElement;
 		}
 		
-		public WebElement BatchETLElement()
+		public WebElement clickBatchETLElement()
 		{
+			BatchETLElement.click();
 			return BatchETLElement;
 		}
 		
-		public WebElement RunningExtractionsElement()
+		public WebElement clickRunningExtractionsElement()
 		{
+			RunningExtractionsElement.click();
 			return RunningExtractionsElement;
 		}
-		public WebElement ChangePassElement()
+		public WebElement clickChangePassElement()
 		{
+			ChangePassElement.click();
 			return ChangePassElement;
 		}
-		public WebElement userguide()
+		public WebElement clickuserguide()
 		{
+			userguide.click();
 			return userguide;
 		}
-		public WebElement Signout()
+		public WebElement clickSignout()
 		{
+			Signout.click();
 			return Signout;
 		}
-		public WebElement HomeButton()
+		public WebElement clickHomeButton()
 		{
+			HomeButton.click();
 			return HomeButton;
 			
 		}
-		public WebElement serviceStatus()
+		public WebElement getserviceStatus()
 		{
 			return serviceStatus;
 		}
-		public WebElement RolesElement()
+		public WebElement clickRolesElement()
 		{
+			RolesElement.click();
 			return RolesElement;
 		}
 		
-		public WebElement UsersElement()
+		public WebElement clickUsersElement()
 		{
+			UsersElement.click();
 			return UsersElement;
+		}
+		
+		public String getChangePasswordText( )
+		{
+			return(ChangePasswordText.getText());
+			
 		}
 }
 
